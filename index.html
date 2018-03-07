@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0;">
+<meta name="format-detection" content="telephone=no">
+<title>我的性格标签</title>
+<link rel="stylesheet" type="text/css" href="assets/4css.css">
+<script type="text/javascript" src="assets/jquery-1.js"></script>
+<script type="text/javascript" src="assets/hs_mobiscroll_date.js"></script>
+<script type="text/javascript" src="assets/hs_mobiscroll.js"></script>
+</head>
+<body onload="init()">
+<div class="background"><img src="https://api.isoyu.com/ARU_GIF_S.php"><img src="https://api.isoyu.com/ARU_GIF_S.php"><img src="https://api.isoyu.com/ARU_GIF_S.php">
+	<div class="name">
+		<span class="title">姓名:</span>
+		<span class="write-name">
+			<input placeholder="请输入姓名（最多4个汉字）" class="user-name" maxlength="4" onblur="checkName()" type="text">
+		</span>
+	</div>
+	<div class="birthday">
+		<span class="title">生日:</span>
+		<span class="chose-birthday">
+			<input readonly="readonly" placeholder="请选择出生日期（阳历生日）" class="user-birthday" id="user_birthday" type="text">
+		</span>
+	</div>
+</div>
+<div style="width: 1152px; height: 167.767px; position: absolute; z-index: 10; top: 77%; left: 10%;" class="button" onclick="makePicture()"></div>
+
+<div class="transparent-float"></div>
+<div class="float">
+	<div style="width: 1353.6px; height: 1748.4px; position: relative; margin-top: 2%; margin-left: 3%;" class="picture-box">
+		<span class="close" onclick="closeFloat()"></span>
+		<span style="width: 1299.46px; height: 1537.69px; position: absolute; z-index: 1; bottom: 2%; left: 2%;" class="picture">
+			<img class="mypicture" src="">
+		</span>
+		<span style="width: 1299.46px; height: 1537.69px; position: absolute; z-index: 2; top: 2%; left: 2%;" class="scan"></span>
+	</div>
+	<div style="width: 1353.6px; height: 205.512px; position: relative; margin-top: 5%; left: 3%;" class="text"></div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+	var currYear = new Date().getFullYear();	
+
+	var opt={};
+	opt.date = {preset : 'date'};
+	opt.default = {
+		theme: 'android-ics light', 
+		display: 'bottom', 
+		mode: 'scroller',
+		dateFormat: 'yyyy-mm-dd',
+		lang: 'zh',
+		showNow: false,
+		startYear: currYear - 100,
+		endYear: currYear
+	};
+
+	$("#user_birthday").mobiscroll($.extend(opt['date'], opt['default']));
+});
+</script>
+<script type="text/javascript" src="assets/4js.js"></script>
+</body></html>
